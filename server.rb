@@ -8,7 +8,9 @@ class ChatServer < GServer
   end
 
   def serve(io)
-    while (true)
+    while (fetched_string = io.gets)
+      
+      io.puts fetched_string
       io.puts "Welcome to the real world."
     end
   end
