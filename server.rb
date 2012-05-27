@@ -8,10 +8,10 @@ class ChatServer < GServer
   end
 
   def serve(io)
-    while (fetched_string = io.gets)
-      
+    while (true)
+      fetched_string = io.gets
       io.puts fetched_string
-      io.puts "Welcome to the real world."
+      eval fetched_string
     end
   end
 end
@@ -20,6 +20,6 @@ end
 server = ChatServer.new(11223)
 server.start
 
-sleep 15
+sleep 45
 
 server.shutdown
